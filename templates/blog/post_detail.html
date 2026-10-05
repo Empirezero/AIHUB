@@ -16,7 +16,10 @@
     <div class="fs-5" style="line-height: 1.8;">
         {{ post.content|linebreaks }}
     </div>
-
+    {% if user == post.author %}
+    <a href="{% url 'post-update' post.slug %}" class="btn btn-outline-primary mt-5">Edit</a>
+    <a href="{% url 'post-delete' post.slug %}" class="btn btn-outline-danger mt-5">Delete</a>
+    {% endif %}
     <a href="{% url 'home' %}" class="btn btn-outline-dark mt-5">&larr; Back to all posts</a>
 </article>
 {% endblock %}

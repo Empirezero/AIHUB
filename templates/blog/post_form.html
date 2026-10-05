@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}{{ title }} — AIHub{% endblock %}
+{% block content %}
+<div class="mx-auto" style="max-width: 700px;">
+    <h2 class="mb-4">{{ title }}</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-dark">Save Post</button>
+    </form>
+</div>
+{% endblock %}
